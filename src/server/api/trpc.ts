@@ -10,7 +10,7 @@ import { initTRPC, TRPCError } from "@trpc/server";
 import { type NextRequest } from "next/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
-import { getAuth, SignedInAuthObject, SignedOutAuthObject } from '@clerk/nextjs/server';
+import { getAuth, type SignedInAuthObject, type SignedOutAuthObject } from '@clerk/nextjs/server';
 
 import { db } from "~/server/db";
 

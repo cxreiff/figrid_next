@@ -1,4 +1,4 @@
-import { auth, UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 import { CreatePost } from "~/components/create-post";
@@ -6,15 +6,7 @@ import { api } from "~/trpc/server";
 
 export default async function Home() {
 
-  const { userId } = auth();
-  var hello;
-  if (userId) {
-    try {
-      hello = await api.post.hello.query({ text: "from tRPC" });
-    } catch (error) {
-      console.debug(error);
-    }
-  }
+  const hello = await api.post.hello.query({ text: "from tRPC" });
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-stone-700 to-stone-900 text-white">

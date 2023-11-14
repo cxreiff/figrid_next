@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* hide "secured by clerk" label */
+.cl-card>div:last-child {
+    display: none;
+}

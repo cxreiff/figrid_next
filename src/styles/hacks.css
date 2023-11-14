@@ -1,4 +1,0 @@
-/* hide "secured by clerk" label */
-.cl-card>div:last-child {
-    display: none;
-}

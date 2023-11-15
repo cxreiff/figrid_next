@@ -1,13 +1,23 @@
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { TextTyper } from "~/components/text-typer";
+import { loremIpsum } from "~/utilities/lorem-ipsum";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <UserButton afterSignOutUrl="/" />
-        <Link href={"example"}>example {"->"}</Link>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex items-center h-16 px-6 py-4 m-2 border border-stone-500 gap-4">
+        <Link href="/" className="grow">
+          figrid
+        </Link>
+        <Link href={"example"}>
+          /protected
+        </Link>
+        <UserButton />
       </div>
-    </main>
+      <main className="flex flex-col grow items-center justify-center m-2 border border-stone-500">
+        <TextTyper text={loremIpsum} className="p-6" />
+      </main>
+    </div>
   );
 }

@@ -109,6 +109,7 @@ export const publicProcedure = t.procedure;
  * Private (authenticated) procedure.
  */
 export const privateProcedure = t.procedure.use(t.middleware(({ next, ctx }) => {
+  console.debug(ctx)
   if (!ctx.auth.userId) {
     throw new TRPCError({ code: "UNAUTHORIZED" })
   }

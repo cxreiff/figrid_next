@@ -1,6 +1,3 @@
-import { UserButton } from "@clerk/nextjs";
-
-import { CreatePost } from "~/components/create-post";
 import { api } from "~/trpc/server";
 
 export default async function Home() {
@@ -15,25 +12,7 @@ export default async function Home() {
             {hello ? hello.greeting : "Loading tRPC query..."}
           </p>
         </div>
-        <CrudShowcase />
-        <UserButton afterSignOutUrl="/" />
       </div>
     </main>
-  );
-}
-
-async function CrudShowcase() {
-  const latestPost = await api.post.getLatest.query();
-
-  return (
-    <div className="w-full max-w-xs flex flex-col gap-6">
-      {latestPost ? (
-        <p className="truncate text-center">Your most recent post: {latestPost.name}</p>
-      ) : (
-        <p>You have no posts yet.</p>
-      )}
-
-      <CreatePost />
-    </div>
   );
 }
